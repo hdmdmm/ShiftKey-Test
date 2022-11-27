@@ -21,7 +21,7 @@ struct LicenseView: View {
       
       VStack(spacing: 0) {
         Text(licenseData.speciality.abbreviation ?? licenseData.name)
-          .font(.system(size: 38.0))
+          .font(.system(size: 28.0))
           .fontWeight(.heavy)
       }
       

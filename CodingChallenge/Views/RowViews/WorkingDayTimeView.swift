@@ -21,6 +21,7 @@ struct WorkingDayTimeView: View {
         .fontWeight(.light)
         .foregroundColor(Color.blue)
         .multilineTextAlignment(.center)
+        .padding(.top, 8)
       
       Circle()
         .trim(from: 1/24.0 * CGFloat(startHour), to: 1/24.0 * CGFloat(endHour < startHour ? 24 : endHour))
@@ -50,6 +51,7 @@ struct WorkingDayTimeView: View {
         .fontWeight(.light)
         .foregroundColor(Color.green)
         .multilineTextAlignment(.center)
+        .padding(.bottom, 8)
     }
   }
 }

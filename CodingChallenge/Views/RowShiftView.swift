@@ -13,6 +13,7 @@ struct RowShiftView: View {
   
   var body: some View {
     HStack(spacing: 0) {
+      Spacer()
       VStack(spacing: 8.0) {
         LicenseView(licenseData: viewModel.model.localizedSpeciality)
 
@@ -22,7 +23,6 @@ struct RowShiftView: View {
         AttributesView(isCovid: viewModel.model.covid,
                        withinDistance: viewModel.model.withinDistance,
                        skillData: viewModel.model.skill)
-        .padding(.top, 20.0)
       }
 
       Spacer()
@@ -34,6 +34,8 @@ struct RowShiftView: View {
         startHour: viewModel.startHours,
         endHour: viewModel.endHours
       )
+
+      Spacer()
     }
     .padding(.leading, 8)
     .padding(.trailing, 8)
