@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct CodingChallengeApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ShiftsView()
-        }
+  private var container = DIContainer()
+  var body: some Scene {
+    WindowGroup {
+      ShiftsView(viewModel: container.makeShiftsViewModel())
     }
+  }
 }
