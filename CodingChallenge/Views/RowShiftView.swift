@@ -27,13 +27,7 @@ struct RowShiftView: View {
 
       Spacer()
 
-      WorkingDayTimeView(
-        shiftKind: viewModel.model.shiftKind,
-        workingHours: viewModel.workingHours,
-        workingDate: viewModel.workingDate,
-        startHour: viewModel.startHours,
-        endHour: viewModel.endHours
-      )
+      WorkingDayTimeView(viewModel: viewModel)
 
       Spacer()
     }

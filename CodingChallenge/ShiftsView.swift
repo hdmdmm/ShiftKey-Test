@@ -10,6 +10,7 @@ import Combine
 
 struct ShiftsView: View {
   @ObservedObject var viewModel: ShiftsViewModel
+  @State private var selectedViewModel: ShiftViewModel?
   
   var body: some View {
     NavigationView {
@@ -24,10 +25,17 @@ struct ShiftsView: View {
             
             List {
               ForEach($viewModel.list) { $viewModel in
-                RowShiftView(viewModel: $viewModel.wrappedValue)
-                  .frame( maxWidth: .infinity)
-                  .edgesIgnoringSafeArea(.all)
+                Button {
+                  selectedViewModel = $viewModel.wrappedValue
+                } label: {
+                  RowShiftView(viewModel: $viewModel.wrappedValue)
+                    .frame( maxWidth: .infinity )
+                    .edgesIgnoringSafeArea(.all)
+                }
               }
+            }
+            .sheet(item: $selectedViewModel) {
+              ShiftDescriptionView(viewModel: $0)
             }
             .frame( maxWidth: .infinity)
             .edgesIgnoringSafeArea(.all)

@@ -30,7 +30,7 @@ final class ShiftsViewModel: ObservableObject {
   }
   
   func onSearch (
-    request: ShiftsRequestEntity = ShiftsRequestEntity(address: "Dallas, TX", type: nil, start: nil, end: nil, radius: 12.5)
+    request: ShiftsRequestEntity = ShiftsRequestEntity(address: "Dallas, TX", type: nil, start: nil, end: nil, radius: 15.8)
   ) {
     prepareForSearch()
     cancellableSearch = fetchShiftsUseCase.searchShifts(by: request)

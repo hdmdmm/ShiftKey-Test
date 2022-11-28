@@ -42,6 +42,8 @@
 		B0559C5E2933CDA000130633 /* AttributesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559C5D2933CDA000130633 /* AttributesView.swift */; };
 		B0559C602933CEB700130633 /* WorkingDayTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559C5F2933CEB700130633 /* WorkingDayTimeView.swift */; };
 		B0559C622933D94C00130633 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559C612933D94C00130633 /* Date+.swift */; };
+		B0559C642933F4C300130633 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559C632933F4C300130633 /* ActivityIndicator.swift */; };
+		B0559C662934F28200130633 /* ShiftDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559C652934F28200130633 /* ShiftDescriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		B0559C5D2933CDA000130633 /* AttributesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributesView.swift; sourceTree = "<group>"; };
 		B0559C5F2933CEB700130633 /* WorkingDayTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingDayTimeView.swift; sourceTree = "<group>"; };
 		B0559C612933D94C00130633 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		B0559C632933F4C300130633 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		B0559C652934F28200130633 /* ShiftDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftDescriptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +206,8 @@
 				B0559C582933CC8E00130633 /* RowViews */,
 				B0559C5329339CCB00130633 /* DatePickerView */,
 				B0559C5429339D3100130633 /* RowShiftView.swift */,
+				B0559C632933F4C300130633 /* ActivityIndicator.swift */,
+				B0559C652934F28200130633 /* ShiftDescriptionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -509,12 +515,14 @@
 				B03C6666292CF91F00EE4978 /* ShiftsViewModel.swift in Sources */,
 				B03C6676292D100300EE4978 /* FetchShiftsUseCase.swift in Sources */,
 				B0559C5E2933CDA000130633 /* AttributesView.swift in Sources */,
+				B0559C662934F28200130633 /* ShiftDescriptionView.swift in Sources */,
 				B03C6659292CEB7B00EE4978 /* DTOModels.swift in Sources */,
 				B03781BA293101000044E991 /* PagingView.swift in Sources */,
 				B03C6688292D313F00EE4978 /* ShiftsRepositoryProtocol.swift in Sources */,
 				B03781B6293006720044E991 /* String+.swift in Sources */,
 				B0559C602933CEB700130633 /* WorkingDayTimeView.swift in Sources */,
 				B03C666A292CFB7500EE4978 /* DIContainer.swift in Sources */,
+				B0559C642933F4C300130633 /* ActivityIndicator.swift in Sources */,
 				B03C6681292D1DBC00EE4978 /* NetworkService.swift in Sources */,
 				2349FD5B261E4F6900A1FEAA /* CodingChallengeApp.swift in Sources */,
 				B03781BE293101B60044E991 /* ElementView.swift in Sources */,

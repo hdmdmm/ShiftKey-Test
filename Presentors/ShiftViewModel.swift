@@ -9,6 +9,22 @@ import Foundation
 import Combine
 
 final class ShiftViewModel: ObservableObject {
+  var facility: FacilityType {
+    model.facilityType
+  }
+
+  var skill: FacilityType {
+    model.skill
+  }
+
+  var localizedSpeciality: LocalizedSpeciality {
+    model.localizedSpeciality
+  }
+  
+  var speciality: FacilityType {
+    model.localizedSpeciality.speciality
+  }
+  
   var workingDate: String {
     Date.transform(date: model.normalizedStartDateTime)
   }
@@ -27,7 +43,7 @@ final class ShiftViewModel: ObservableObject {
     Date.transformToHour(date: model.normalizedEndDateTime)
   }
   
-  var model: ShiftEntity
+  let model: ShiftEntity
   init(model: ShiftEntity) {
     self.model = model
   }

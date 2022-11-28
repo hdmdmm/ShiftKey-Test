@@ -52,7 +52,6 @@ struct AttributesView: View {
           .fontWeight(.light)
       }
       .foregroundColor(Color(hex: skillData.color))
-      Spacer()
     }
   }
 }

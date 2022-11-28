@@ -27,6 +27,7 @@ struct FacilityTypeView: View {
         .scaledToFit()
         .frame(width: 22, height: 22)
         .foregroundColor(isPremium ? Color.yellow : Color.gray)
+        .padding(.top, 4)
       
       Spacer()
     }
