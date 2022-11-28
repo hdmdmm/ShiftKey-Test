@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class ShiftViewModel: ObservableObject {
+struct ShiftViewModel {
   var facility: FacilityType {
     model.facilityType
   }

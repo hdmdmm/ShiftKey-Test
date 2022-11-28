@@ -36,9 +36,11 @@ struct DatePickerView: View {
               ElementView(selectedIndex: $selectedIndex, id: index, title: list[index])
             }
         )
-        .frame(width: geometry.size.width/2, height: 32.0)
+        .frame(width: geometry.size.width/2)
+        .frame(maxHeight: .infinity)
         Spacer()
       }
+      .frame(maxHeight: .infinity)
       .overlay(gradient.allowsHitTesting(false))
     }
   }

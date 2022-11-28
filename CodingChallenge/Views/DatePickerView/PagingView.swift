@@ -20,12 +20,12 @@ struct PagingView<Content: View & Identifiable>: View {
       ScrollView(.horizontal, showsIndicators: false) {
         HStack(alignment: .center, spacing: 0) {
           ForEach(pages) {
-            $0.frame(width: proxy.size.width, height: nil)
+            $0.frame(width: proxy.size.width)
           }
         }
       }
       .content.offset(x: isScrolling ? offset : -proxy.size.width * CGFloat(index))
-      .frame(width: proxy.size.width, height: nil, alignment: .leading)
+      .frame(width: proxy.size.width, alignment: .leading)
       .gesture(
         DragGesture()
           .onChanged({ value in

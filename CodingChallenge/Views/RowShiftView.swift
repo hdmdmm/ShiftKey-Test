@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct RowShiftView: View {
-  @ObservedObject var viewModel: ShiftViewModel
+  var viewModel: ShiftViewModel
   
   var body: some View {
     HStack(spacing: 0) {

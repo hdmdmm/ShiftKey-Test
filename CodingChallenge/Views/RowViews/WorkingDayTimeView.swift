@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WorkingDayTimeView: View {
-  @ObservedObject var viewModel: ShiftViewModel
+  var viewModel: ShiftViewModel
   private var shiftKind: String {
     viewModel.model.shiftKind
   }

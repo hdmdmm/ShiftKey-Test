@@ -16,6 +16,7 @@ struct ElementView: View, Identifiable {
     Text(title)
       .font(.title)
       .foregroundColor(selectedIndex == id ? .red : .black)
+      .frame(maxHeight: .infinity)
   }
 }
 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShiftDescriptionView: View {
-  @ObservedObject var viewModel: ShiftViewModel
+  var viewModel: ShiftViewModel
 
   private var externalFrom: CGFloat {
     1/24.0 * CGFloat(viewModel.startHours)

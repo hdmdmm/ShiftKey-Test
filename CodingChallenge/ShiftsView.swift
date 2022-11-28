@@ -21,7 +21,7 @@ struct ShiftsView: View {
             // Date selector
             DatePickerView(selectedIndex: $viewModel.selectedIndex, list: $viewModel.dates)
               .background(Color.gray.opacity(0.2))
-              .frame(maxWidth: .infinity, maxHeight: 32.0)
+              .frame(maxWidth: .infinity, maxHeight: 56.0)
             
             List {
               ForEach($viewModel.list) { $viewModel in
