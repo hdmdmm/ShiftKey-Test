@@ -8,12 +8,29 @@
 import Foundation
 import Combine
 
-public enum NetworkError: Error {
+public enum NetworkError: LocalizedError {
   case error(statusCode: Int, data: Data?)
   case notConnected
   case cancelled
   case generic(Error)
   case urlGeneration
+
+  public var errorDescription: String? {
+    let description: String
+    switch self {
+    case .error(statusCode: let status, let data):
+      description = "Responsed: status: \(status) " + "data: \(String(data: data ?? Data(), encoding: .utf8) ?? "")"
+    case .notConnected:
+      description = "Lost network connection."
+    case .cancelled:
+      description = "The request was cancelled."
+    case .generic(let error):
+      description = error.localizedDescription
+    case .urlGeneration:
+      description = "The requested url and parameters are incorrect"
+    }
+    return description.localized
+  }
 }
 
 public protocol NetworkServiceProtocol {

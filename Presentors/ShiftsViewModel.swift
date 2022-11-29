@@ -12,11 +12,18 @@ enum Status {
   case initialized, loading, finished
 }
 
+struct ErrorInfo: Identifiable {
+  var id: Int
+  let title: String
+  let description: String
+}
+
 final class ShiftsViewModel: ObservableObject {
   @Published var selectedIndex: Int = 0
   @Published var dates: [String] = []
   @Published var list: [ShiftViewModel] = []
   @Published var statement: Result<Status, Error> = .success(.initialized)
+  @Published var errorInfo: ErrorInfo?
   
   @Published var searchResult: [String: [ShiftViewModel]] = [:]
   
@@ -65,6 +72,16 @@ final class ShiftsViewModel: ObservableObject {
       }
       .assign(to: \.list, on: self)
       .store(in: &cancellableBindings)
+    
+    $statement
+      .map { result -> ErrorInfo? in
+        guard case let .failure(error) = result else {
+          return nil
+        }
+        return ErrorInfo(id: 1, title: "Ups, smth wrong".localized, description: error.localizedDescription)
+      }
+      .assign(to: \.errorInfo, on: self)
+      .store(in: &cancellableBindings)
   }
   
   private func prepareForSearch() {
@@ -73,7 +90,6 @@ final class ShiftsViewModel: ObservableObject {
     searchResult = [:]
     statement = .success(.loading)
   }
-
 }
 
 //private var request: URLRequest {

@@ -8,12 +8,40 @@
 import Foundation
 import Combine
 
-public enum DataTransferError: Error {
+public enum DataTransferError: LocalizedError {
   case generic(Error)
-  case noResponse
   case parsing(Error)
   case networkFailure(NetworkError)
   case resolvedNetworkFailure(Error)
+  
+  public var errorDescription: String? {
+    let description: String
+    switch self {
+    case .generic(let error):
+      description = "Generic error: " + error.localizedDescription
+    case .parsing(let error):
+      description = "Unknown response data: " + error.localizedDescription
+    case .networkFailure(let networkError):
+      description = "Network message: " + transform(error: networkError)
+    case .resolvedNetworkFailure(let error):
+      description = "Resolved network failure: " + error.localizedDescription
+    }
+    return description.localized
+  }
+
+  struct ServerErrorMessage: Decodable {
+    let message: String
+  }
+
+  public func transform(error: NetworkError) -> String {
+    if case .error(let statusCode, let data) = error, let data = data {
+      if statusCode == 500 {
+        let message = try? JSONResponseDecoder().decode(data) as ServerErrorMessage
+        return message?.message ?? ""
+      }
+    }
+    return error.localizedDescription
+  }
 }
 
 public protocol DataTransferServiceProtocol {
@@ -42,6 +70,7 @@ public struct DefaultDataTransferService: DataTransferServiceProtocol {
   
   private func transform(_ error: Error) -> DataTransferError {
     if let error = error as? NetworkError {
+      // to add here mapper to LocalizedError
       return DataTransferError.networkFailure(error)
     }
     

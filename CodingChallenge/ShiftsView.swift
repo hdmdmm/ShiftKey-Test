@@ -33,7 +33,7 @@ struct ShiftsView: View {
                     .edgesIgnoringSafeArea(.all)
                 }
               }
-            }
+            }// presents detailed view modally
             .sheet(item: $selectedViewModel) {
               ShiftDescriptionView(viewModel: $0)
             }
@@ -48,12 +48,7 @@ struct ShiftsView: View {
             VStack {
               Spacer()
               Group {
-                Button {
-                  //
-                } label: {
-                  Image(systemName: "gearshape.2")
-                }
-
+                Button {} label: { Image(systemName: "gearshape.2") }
                 Button { viewModel.onSearch() } label: { Image(systemName: "magnifyingglass") }
               }
               .font(.title)
@@ -66,10 +61,13 @@ struct ShiftsView: View {
               .padding(.bottom, 16.0)
             }
           }
-        }.frame(maxWidth: .infinity)
-        
+        }
+        .frame(maxWidth: .infinity)
       }
       .navigationTitle("Shifts")
+      .alert(item: $viewModel.errorInfo) { error in
+        Alert(title: Text(error.title), message: Text(error.description))
+      }
     }
   }
 }

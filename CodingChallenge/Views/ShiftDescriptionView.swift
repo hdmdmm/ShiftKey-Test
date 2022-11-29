@@ -36,18 +36,19 @@ struct ShiftDescriptionView: View {
           .font(.title)
           .foregroundColor(Color(hex: viewModel.facility.color))
           .padding(.top, 20.0)
+          .padding(.bottom, 20.0)
 
-        VStack {
+        VStack(spacing: 4.0) {
           Text(viewModel.workingDate)
             .font(.system(size: 32))
             .fontWeight(.medium)
 
           Text(viewModel.model.shiftKind)
-            .font(.title2)
-            .padding(.top, 8.0)
+            .font(.title3)
+            .padding(.top, 2.0)
 
           Text("24")
-            .padding(.top, 8)
+            .padding(.bottom, 2.0)
 
           HStack {
             Text("18")
@@ -68,14 +69,14 @@ struct ShiftDescriptionView: View {
                     .foregroundColor(Color.orange.opacity(0.5))
                 }
               )
-              .frame(maxWidth: 142.0, maxHeight: 142.0)
+              .frame(width: 100.0, height: 100.0)
             Text("6")
           }
           Text("12")
+            .padding(.top, 2.0)
           Text("Working hours: \(viewModel.workingHours)")
             .font(.title2)
         }
-        .padding(.top, 32.0)
         .foregroundColor(Color(hex: viewModel.skill.color))
 
         VStack {
