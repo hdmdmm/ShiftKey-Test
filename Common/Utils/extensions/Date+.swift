@@ -9,6 +9,12 @@ import Foundation
 
 extension Date {
   
+  func transform(formatOut: String = "MM-dd-yyyy") -> String {
+    let dateFormatterOut = DateFormatter()
+    dateFormatterOut.dateFormat = formatOut
+    return dateFormatterOut.string(from: self)
+  }
+  
   static func transform(
     date: String,
     formatIn: String = "yyyy-MM-dd HH:mm:ss",

@@ -55,3 +55,13 @@ struct DIContainer: ConfiguratorProtocol {
     ShiftsViewModel(fetchShiftsUseCase: makeUseCase())
   }
 }
+
+protocol SearchSettingsDependencies {
+  func makeSearchSettingsViewModel() -> SearchSettingsViewModel
+}
+
+extension DIContainer: SearchSettingsDependencies {
+  func makeSearchSettingsViewModel() -> SearchSettingsViewModel {
+    SearchSettingsViewModel()
+  }
+}

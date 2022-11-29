@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-public enum NetworkError: LocalizedError {
+public enum NetworkError: LocalizedError, Equatable {
   case error(statusCode: Int, data: Data?)
   case notConnected
   case cancelled
@@ -30,6 +30,33 @@ public enum NetworkError: LocalizedError {
       description = "The requested url and parameters are incorrect"
     }
     return description.localized
+  }
+  
+  public static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
+    if case let .error(lhsCode, lhsData) = lhs,
+       case let .error(rhsCode, rhsData) = rhs,
+       lhsCode == rhsCode, lhsData == rhsData {
+      return true
+    }
+
+    if case .notConnected = lhs, case .notConnected = rhs {
+      return true
+    }
+
+    if case .cancelled = lhs, case .cancelled = rhs {
+      return true
+    }
+
+    if case let .generic(lhsError) = lhs,
+       case let .generic(rhsError) = rhs,
+       (lhsError as NSError).code == (rhsError as NSError).code {
+      return true
+    }
+
+    if case .urlGeneration = lhs, case .urlGeneration = rhs {
+      return true
+    }
+    return false
   }
 }
 
@@ -72,13 +99,15 @@ extension DefaultNetworkService: NetworkServiceProtocol {
     guard let error = error as? URLError else {
       return .generic(error)
     }
-    if error.code == .notConnectedToInternet {
+    if error.code == .notConnectedToInternet
+        || error.code == .networkConnectionLost {
       return .notConnected
     }
     if error.code == .cancelled {
       return .cancelled
     }
-    if error.code == .badURL || error.code == .unsupportedURL {
+    if error.code == .badURL
+        || error.code == .unsupportedURL {
       return .urlGeneration
     }
     return .generic(error)

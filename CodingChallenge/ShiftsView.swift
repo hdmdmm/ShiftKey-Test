@@ -11,6 +11,7 @@ import Combine
 struct ShiftsView: View {
   @ObservedObject var viewModel: ShiftsViewModel
   @State private var selectedViewModel: ShiftViewModel?
+  @State private var isPresentedSettings: Bool = false
   
   var body: some View {
     NavigationView {
@@ -48,7 +49,10 @@ struct ShiftsView: View {
             VStack {
               Spacer()
               Group {
-                Button {} label: { Image(systemName: "gearshape.2") }
+                Button { isPresentedSettings = true } label: { Image(systemName: "gearshape.2") }
+                  .sheet(isPresented: $isPresentedSettings) {
+                    SearchSettingsView(viewModel: SearchSettingsViewModel())
+                  }
                 Button { viewModel.doSearch() } label: { Image(systemName: "magnifyingglass") }
               }
               .font(.title)
