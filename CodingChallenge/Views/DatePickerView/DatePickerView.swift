@@ -14,11 +14,11 @@ struct DatePickerView: View {
   var gradient: LinearGradient {
     LinearGradient(
       colors: [
-        Color.white,
-        Color.white.opacity(0.6),
+        Color.white.opacity(0.2),
+        Color.white.opacity(0.4),
         Color.white.opacity(0),
-        Color.white.opacity(0.6),
-        Color.white
+        Color.white.opacity(0.4),
+        Color.white.opacity(0.2)
       ],
       startPoint: .leading,
       endPoint: .trailing
