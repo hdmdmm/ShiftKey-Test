@@ -22,10 +22,11 @@ final class ShiftsViewModel: ObservableObject {
   @Published var selectedIndex: Int = 0
   @Published var dates: [String] = []
   @Published var list: [ShiftViewModel] = []
-  @Published var statement: Result<Status, Error> = .success(.initialized)
   @Published var errorInfo: ErrorInfo?
+  @Published var isSearching: Bool = false
   
-  @Published var searchResult: [String: [ShiftViewModel]] = [:]
+  @Published private var searchResult: [String: [ShiftViewModel]] = [:]
+  @Published private var statement: Result<Status, Error> = .success(.initialized)
   
   private let fetchShiftsUseCase: FetchShiftsUseCaseProtocol
   private var cancellableSearch: AnyCancellable?
@@ -36,7 +37,7 @@ final class ShiftsViewModel: ObservableObject {
     setupBindings()
   }
   
-  func onSearch (
+  func doSearch (
     request: ShiftsRequestEntity = ShiftsRequestEntity(address: "Dallas, TX", type: nil, start: nil, end: nil, radius: 15.8)
   ) {
     prepareForSearch()
@@ -82,6 +83,17 @@ final class ShiftsViewModel: ObservableObject {
       }
       .assign(to: \.errorInfo, on: self)
       .store(in: &cancellableBindings)
+    
+    $statement
+      .map {
+        guard case let .success(statement) = $0 else {
+          return false
+        }
+        return statement == .loading
+      }
+      .assign(to: \.isSearching, on: self)
+      .store(in: &cancellableBindings)
+      
   }
   
   private func prepareForSearch() {

@@ -49,7 +49,7 @@ struct ShiftsView: View {
               Spacer()
               Group {
                 Button {} label: { Image(systemName: "gearshape.2") }
-                Button { viewModel.onSearch() } label: { Image(systemName: "magnifyingglass") }
+                Button { viewModel.doSearch() } label: { Image(systemName: "magnifyingglass") }
               }
               .font(.title)
               .frame(width: 52.0, height: 52.0, alignment: .center)
@@ -69,6 +69,9 @@ struct ShiftsView: View {
         Alert(title: Text(error.title), message: Text(error.description))
       }
     }
+    .allowsHitTesting(!($viewModel.isSearching.wrappedValue))
+    .onAppear { viewModel.doSearch() }
+    .overlay( ActivityIndicator(isAnimating: $viewModel.isSearching, style: .large) )
   }
 }
 
