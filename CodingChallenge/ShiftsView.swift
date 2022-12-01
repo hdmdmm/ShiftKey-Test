@@ -20,11 +20,6 @@ struct ShiftsView<VM: ShiftsViewModelProtocol>: View {
         ZStack {
           
           VStack {
-            // Date selector
-            DatePickerView(selectedIndex: $viewModel.selectedIndex, list: $viewModel.dates)
-              .background(Color.gray.opacity(0.2))
-              .frame(maxWidth: .infinity, maxHeight: 56.0)
-            
             List {
               ForEach($viewModel.list) { $viewModel in
                 Button {
@@ -35,37 +30,47 @@ struct ShiftsView<VM: ShiftsViewModelProtocol>: View {
                     .edgesIgnoringSafeArea(.all)
                 }
               }
+              
             }// presents detailed view modally
             .sheet(item: $selectedViewModel) {
               ShiftDescriptionView(viewModel: $0)
             }
             .frame( maxWidth: .infinity)
-            .edgesIgnoringSafeArea(.all)
             .listStyle(PlainListStyle())
           }
           
-          // Buttons
-          HStack {
+          VStack {
             Spacer()
-            VStack {
+            // Buttons
+            HStack {
+              
               Spacer()
-              Group {
-                Button { isPresentedSettings = true } label: { Image(systemName: "gearshape.2") }
-                  .sheet(isPresented: $isPresentedSettings) {
-                    
-                    SearchSettingsView(viewModel: $viewModel.searchRequestSettings)
-                  }
-                Button { viewModel.doSearch() } label: { Image(systemName: "magnifyingglass") }
+              
+              VStack {
+                Spacer()
+                Group {
+                  Button { isPresentedSettings = true } label: { Image(systemName: "gearshape.2") }
+                    .sheet(isPresented: $isPresentedSettings) {
+                      
+                      SearchSettingsView(model: $viewModel.searchRequestSettings)
+                    }
+                  Button { viewModel.doSearch() } label: { Image(systemName: "magnifyingglass") }
+                }
+                .font(.title)
+                .frame(width: 52.0, height: 52.0, alignment: .center)
+                .background(Color.white.opacity(0.7))
+                .cornerRadius(26.0)
+                .shadow(radius: 26.0)
+                .shadow(color: Color.white, radius: 32.0, x: 2.0, y: 2.0)
+                .padding(.trailing, 16.0)
+                .padding(.bottom, 16.0)
               }
-              .font(.title)
-              .frame(width: 52.0, height: 52.0, alignment: .center)
-              .background(Color.white.opacity(0.7))
-              .cornerRadius(26.0)
-              .shadow(radius: 26.0)
-              .shadow(color: Color.white, radius: 32.0, x: 2.0, y: 2.0)
-              .padding(.trailing, 16.0)
-              .padding(.bottom, 16.0)
             }
+            // Date selector
+            DatePickerView(selectedIndex: $viewModel.selectedIndex, list: $viewModel.dates)
+              .background(Color.gray.opacity(0.2))
+              .frame(maxWidth: .infinity, maxHeight: 56.0)
+              .shadow(color: Color.white, radius: 60.0, x: 0.0, y: 0.0)
           }
         }
         .frame(maxWidth: .infinity)

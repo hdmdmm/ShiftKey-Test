@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct SearchSettingsView: View {
-  @Binding var viewModel: ShiftsRequestEntity
+  @Binding var model: ShiftsRequestEntity
 
   var body: some View {
     
@@ -18,31 +18,31 @@ struct SearchSettingsView: View {
         HStack {
           Text("Address: ")
           Spacer()
-          Text("\(viewModel.address)")
+          Text("\(model.address)")
         }
 
         HStack {
           Text("Type: ")
           Spacer()
-          Text(viewModel.type?.rawValue ?? "")
+          Text(model.type?.rawValue ?? "")
         }
 
         HStack {
           Text("From date: ")
           Spacer()
-          Text(viewModel.start ?? "")
+          Text(model.start ?? "")
         }
 
         HStack {
           Text("To date: ")
           Spacer()
-          Text(viewModel.end ?? "")
+          Text(model.end ?? "")
         }
 
         HStack {
           Text("Distance: ")
           Spacer()
-          Text(String(format:"%.2f", viewModel.radius ?? .infinity))
+          Text(String(format:"%.2f", model.radius ?? .infinity))
         }
       }
       .navigationTitle("Search Settings")
@@ -52,7 +52,7 @@ struct SearchSettingsView: View {
 
 struct SearchSettingsView_Previews: PreviewProvider {
   static var previews: some View {
-    SearchSettingsView(viewModel: SearchSettingsView_Previews().$model)
+    SearchSettingsView(model: SearchSettingsView_Previews().$model)
   }
   
   @State var model = ShiftsRequestEntity(address: "Dallas, TX", type: nil, start: nil, end: nil, radius: 15.8)
