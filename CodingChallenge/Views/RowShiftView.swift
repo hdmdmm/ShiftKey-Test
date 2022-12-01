@@ -8,21 +8,21 @@
 import SwiftUI
 import Combine
 
-struct RowShiftView: View {
-  var viewModel: ShiftViewModel
+struct RowShiftView<VM: ShiftViewModelProtocol>: View {
+  var viewModel: VM
   
   var body: some View {
     HStack(spacing: 0) {
       Spacer()
       VStack(spacing: 8.0) {
-        LicenseView(licenseData: viewModel.model.localizedSpeciality)
+        LicenseView(licenseData: viewModel.localizedSpeciality)
 
-        FacilityTypeView(facilityData: viewModel.model.facilityType,
-                         isPremium: viewModel.model.premiumRate)
+        FacilityTypeView(facilityData: viewModel.facility,
+                         isPremium: viewModel.premiumRate)
         
-        AttributesView(isCovid: viewModel.model.covid,
-                       withinDistance: viewModel.model.withinDistance,
-                       skillData: viewModel.model.skill)
+        AttributesView(isCovid: viewModel.covid,
+                       withinDistance: viewModel.withinDistance,
+                       skillData: viewModel.skill)
       }
 
       Spacer()
@@ -33,7 +33,7 @@ struct RowShiftView: View {
     }
     .padding(.leading, 8)
     .padding(.trailing, 8)
-    .background(Color(hex: viewModel.model.facilityType.color)?.opacity(0.1))
+    .background(Color(hex: viewModel.facility.color)?.opacity(0.1))
   }
 }
 

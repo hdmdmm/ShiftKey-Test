@@ -8,22 +8,25 @@
 import Foundation
 import Combine
 
-enum Status {
-  case initialized, loading, finished
+protocol ShiftsViewModelProtocol: ObservableObject {
+  var selectedIndex: Int { get set }
+  var dates: [String] { get set }
+  var list: [ShiftViewModel] { get set }
+  var errorInfo: ErrorInfo? { get set }
+  var isSearching: Bool { get set }
+  var searchRequestSettings: ShiftsRequestEntity { get set }
+
+  func doSearch (request: ShiftsRequestEntity)
+  func doSearch()
 }
 
-struct ErrorInfo: Identifiable {
-  var id: Int
-  let title: String
-  let description: String
-}
-
-final class ShiftsViewModel: ObservableObject {
+final class ShiftsViewModel: ShiftsViewModelProtocol {
   @Published var selectedIndex: Int = 0
   @Published var dates: [String] = []
   @Published var list: [ShiftViewModel] = []
   @Published var errorInfo: ErrorInfo?
   @Published var isSearching: Bool = false
+  @Published var searchRequestSettings: ShiftsRequestEntity
   
   @Published private var searchResult: [String: [ShiftViewModel]] = [:]
   @Published private var statement: Result<Status, Error> = .success(.initialized)
@@ -34,7 +37,19 @@ final class ShiftsViewModel: ObservableObject {
   
   init(fetchShiftsUseCase: FetchShiftsUseCaseProtocol) {
     self.fetchShiftsUseCase = fetchShiftsUseCase
+    searchRequestSettings = ShiftsRequestEntity(address: "Dallas, TX",
+                                                type: nil,
+                                                start: nil,
+                                                end: nil,
+                                                radius: 15.8)
     setupBindings()
+  }
+  
+  @available(*, deprecated, message: "Added while search settings view and vm logic under development")
+  func doSearch() {
+    doSearch(
+      request: ShiftsRequestEntity(address: "Dallas, TX", type: nil, start: nil, end: nil, radius: 15.8)
+    )
   }
   
   func doSearch (
@@ -103,13 +118,4 @@ final class ShiftsViewModel: ObservableObject {
     statement = .success(.loading)
   }
 }
-
-//private var request: URLRequest {
-//  let url = URL(string: "https://staging-app.shiftkey.com/api/v2/available_shifts?address=Dallas%2C%20TX")!
-//  var request = URLRequest(url: url)
-//  let appJSON = "application/json"
-//  request.addValue(appJSON, forHTTPHeaderField: "Content-Type")
-//  request.addValue(appJSON, forHTTPHeaderField: "Accept")
-//  return request
-//}
 

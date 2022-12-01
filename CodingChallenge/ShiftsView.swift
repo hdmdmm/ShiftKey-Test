@@ -8,8 +8,9 @@
 import SwiftUI
 import Combine
 
-struct ShiftsView: View {
-  @ObservedObject var viewModel: ShiftsViewModel
+struct ShiftsView<VM: ShiftsViewModelProtocol>: View {
+  @StateObject var viewModel: VM
+
   @State private var selectedViewModel: ShiftViewModel?
   @State private var isPresentedSettings: Bool = false
   
@@ -51,7 +52,8 @@ struct ShiftsView: View {
               Group {
                 Button { isPresentedSettings = true } label: { Image(systemName: "gearshape.2") }
                   .sheet(isPresented: $isPresentedSettings) {
-                    SearchSettingsView(viewModel: SearchSettingsViewModel())
+                    
+                    SearchSettingsView(viewModel: $viewModel.searchRequestSettings)
                   }
                 Button { viewModel.doSearch() } label: { Image(systemName: "magnifyingglass") }
               }

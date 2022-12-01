@@ -44,8 +44,10 @@
 		B0559C642933F4C300130633 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559C632933F4C300130633 /* ActivityIndicator.swift */; };
 		B0559C662934F28200130633 /* ShiftDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559C652934F28200130633 /* ShiftDescriptionView.swift */; };
 		B0559C68293551C000130633 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559C67293551C000130633 /* View+.swift */; };
+		B094FF452937778100CC02ED /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = B094FF442937778100CC02ED /* Status.swift */; };
+		B094FF47293777C500CC02ED /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B094FF46293777C500CC02ED /* Errors.swift */; };
+		B094FF4B293778E700CC02ED /* NavigationStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B094FF4A293778E700CC02ED /* NavigationStateProtocol.swift */; };
 		B0B8A0332936274D003CC4A0 /* SearchSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B8A0322936274D003CC4A0 /* SearchSettingsView.swift */; };
-		B0B8A0352936275E003CC4A0 /* SearchSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B8A0342936275E003CC4A0 /* SearchSettingsViewModel.swift */; };
 		B0B8A03F2936646E003CC4A0 /* TestEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B8A03A29366288003CC4A0 /* TestEnvironment.swift */; };
 		B0B8A0402936648D003CC4A0 /* NetworkSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B8A03D2936635A003CC4A0 /* NetworkSessionTests.swift */; };
 		B0B8A0412936649A003CC4A0 /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B8A03829366256003CC4A0 /* XCTestCase+.swift */; };
@@ -114,8 +116,10 @@
 		B0559C632933F4C300130633 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		B0559C652934F28200130633 /* ShiftDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftDescriptionView.swift; sourceTree = "<group>"; };
 		B0559C67293551C000130633 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		B094FF442937778100CC02ED /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		B094FF46293777C500CC02ED /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		B094FF4A293778E700CC02ED /* NavigationStateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStateProtocol.swift; sourceTree = "<group>"; };
 		B0B8A0322936274D003CC4A0 /* SearchSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSettingsView.swift; sourceTree = "<group>"; };
-		B0B8A0342936275E003CC4A0 /* SearchSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSettingsViewModel.swift; sourceTree = "<group>"; };
 		B0B8A03829366256003CC4A0 /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
 		B0B8A03A29366288003CC4A0 /* TestEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEnvironment.swift; sourceTree = "<group>"; };
 		B0B8A03D2936635A003CC4A0 /* NetworkSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionTests.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 		2349FD59261E4F6900A1FEAA /* CodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				B094FF48293778A400CC02ED /* Coordinators */,
 				B0036DA52933622B0055E191 /* Views */,
 				B03C6669292CFB7500EE4978 /* DIContainer.swift */,
 				2349FD5A261E4F6900A1FEAA /* CodingChallengeApp.swift */,
@@ -339,7 +344,8 @@
 			children = (
 				B03C6665292CF91F00EE4978 /* ShiftsViewModel.swift */,
 				B03C6667292CF92D00EE4978 /* ShiftViewModel.swift */,
-				B0B8A0342936275E003CC4A0 /* SearchSettingsViewModel.swift */,
+				B094FF442937778100CC02ED /* Status.swift */,
+				B094FF46293777C500CC02ED /* Errors.swift */,
 			);
 			path = Presentors;
 			sourceTree = "<group>";
@@ -383,6 +389,22 @@
 				B0559C5F2933CEB700130633 /* WorkingDayTimeView.swift */,
 			);
 			path = RowViews;
+			sourceTree = "<group>";
+		};
+		B094FF48293778A400CC02ED /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				B094FF49293778B900CC02ED /* Navigation */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		B094FF49293778B900CC02ED /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				B094FF4A293778E700CC02ED /* NavigationStateProtocol.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		B0B8A0362936621E003CC4A0 /* Common */ = {
@@ -562,14 +584,16 @@
 				B0559C68293551C000130633 /* View+.swift in Sources */,
 				B03C6676292D100300EE4978 /* FetchShiftsUseCase.swift in Sources */,
 				B0559C5E2933CDA000130633 /* AttributesView.swift in Sources */,
-				B0B8A0352936275E003CC4A0 /* SearchSettingsViewModel.swift in Sources */,
 				B0559C662934F28200130633 /* ShiftDescriptionView.swift in Sources */,
 				B03C6659292CEB7B00EE4978 /* DTOModels.swift in Sources */,
+				B094FF4B293778E700CC02ED /* NavigationStateProtocol.swift in Sources */,
+				B094FF452937778100CC02ED /* Status.swift in Sources */,
 				B03781BA293101000044E991 /* PagingView.swift in Sources */,
 				B03C6688292D313F00EE4978 /* ShiftsRepositoryProtocol.swift in Sources */,
 				B03781B6293006720044E991 /* String+.swift in Sources */,
 				B0559C602933CEB700130633 /* WorkingDayTimeView.swift in Sources */,
 				B03C666A292CFB7500EE4978 /* DIContainer.swift in Sources */,
+				B094FF47293777C500CC02ED /* Errors.swift in Sources */,
 				B0559C642933F4C300130633 /* ActivityIndicator.swift in Sources */,
 				B03C6681292D1DBC00EE4978 /* NetworkService.swift in Sources */,
 				2349FD5B261E4F6900A1FEAA /* CodingChallengeApp.swift in Sources */,

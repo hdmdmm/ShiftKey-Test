@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct WorkingDayTimeView: View {
-  var viewModel: ShiftViewModel
+struct WorkingDayTimeView<VM: ShiftViewModelProtocol>: View {
+  var viewModel: VM
   private var shiftKind: String {
-    viewModel.model.shiftKind
+    viewModel.shiftKind
   }
   private var workingHours: String {
     viewModel.workingHours
@@ -27,7 +27,7 @@ struct WorkingDayTimeView: View {
   
   var body: some View {
     VStack {
-      Text(viewModel.model.shiftKind)
+      Text(viewModel.shiftKind)
         .font(.system(size: 13.0))
         .fontWeight(.light)
         .foregroundColor(Color.blue)

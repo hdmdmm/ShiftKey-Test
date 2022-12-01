@@ -9,7 +9,8 @@ import SwiftUI
 import Combine
 
 struct SearchSettingsView: View {
-  var viewModel: SearchSettingsViewModel
+  @Binding var viewModel: ShiftsRequestEntity
+
   var body: some View {
     
     NavigationView {
@@ -23,25 +24,25 @@ struct SearchSettingsView: View {
         HStack {
           Text("Type: ")
           Spacer()
-          Text("\(viewModel.type.rawValue)")
+          Text(viewModel.type?.rawValue ?? "")
         }
 
         HStack {
           Text("From date: ")
           Spacer()
-          Text("\(viewModel.startDate)")
+          Text(viewModel.start ?? "")
         }
 
         HStack {
           Text("To date: ")
           Spacer()
-          Text("\(viewModel.endDate)")
+          Text(viewModel.end ?? "")
         }
 
         HStack {
           Text("Distance: ")
           Spacer()
-          Text(String(format:"%.2f", viewModel.distance))
+          Text(String(format:"%.2f", viewModel.radius ?? .infinity))
         }
       }
       .navigationTitle("Search Settings")
@@ -51,6 +52,8 @@ struct SearchSettingsView: View {
 
 struct SearchSettingsView_Previews: PreviewProvider {
   static var previews: some View {
-    SearchSettingsView(viewModel: SearchSettingsViewModel())
+    SearchSettingsView(viewModel: SearchSettingsView_Previews().$model)
   }
+  
+  @State var model = ShiftsRequestEntity(address: "Dallas, TX", type: nil, start: nil, end: nil, radius: 15.8)
 }
