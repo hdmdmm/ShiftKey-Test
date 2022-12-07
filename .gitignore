@@ -48,3 +48,6 @@ Thumbs.db
 *.mov
 *.wmv
 
+UserInterfaceState.xcuserstate
+Breakpoints_v2.xcbkptlist
+xcschememanagement.plist
