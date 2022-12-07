@@ -8,33 +8,24 @@
 import Foundation
 import UIKit
 
-struct ApplicationConfig: Decodable {
-  let host: String
-  // TODO: To add configuration parameter of backend API, version
-}
-
-struct DIContainer: ConfiguratorProtocol {
-  private(set) var model: ApplicationConfig
-  private(set) var hostURL: URL
-//  private(set) var coordinator: FlowCoordinatorProtocol
+struct DIContainer {
+  private(set) var configurator: AppConfigurator
   
   init() {
-    guard let config = try? Self.load("Config") else {
-      fatalError(" The config must be provided by CI/DI at the pre building processing ")
+
+    guard let configurator = try? AppConfigurator(fileName: "AppConfig")
+    else {
+      fatalError(" The config must be provided by CI/DI at the pre-building processing ")
     }
-    model = config
-    guard let url = URL(string: config.host) else {
-      fatalError(" The app config has invalid host url")
-    }
-    hostURL = url
-    
-//    coordinator = MainFlowCoordinator()
+
+    self.configurator = configurator
+
     // appearance
     UITableView.appearance().separatorColor = .clear
   }
   
   func makeNetworkConfig() -> NetworkConfigurable {
-    ApiDataNetworkConfig(baseURL: hostURL, headers: [:], queryParameters: [:])
+    ApiDataNetworkConfig(baseURL: configurator.hostURL, headers: [:], queryParameters: [:])
   }
   
   func makeNetworkService() -> NetworkServiceProtocol {

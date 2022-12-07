@@ -33,8 +33,11 @@
 		B03C6683292D1DBC00EE4978 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C667E292D1DBC00EE4978 /* NetworkConfig.swift */; };
 		B03C6685292D1EBC00EE4978 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C6684292D1EBC00EE4978 /* API.swift */; };
 		B03C6688292D313F00EE4978 /* ShiftsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C6687292D313F00EE4978 /* ShiftsRepositoryProtocol.swift */; };
-		B03C668A292D372400EE4978 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = B03C6689292D372400EE4978 /* Config.plist */; };
+		B03C668A292D372400EE4978 /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B03C6689292D372400EE4978 /* AppConfig.plist */; };
 		B044DDB6293BD0490019F093 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044DDB5293BD0490019F093 /* MainFlowCoordinator.swift */; };
+		B044DDB9294126A80019F093 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B044DDB8294126A80019F093 /* Localizable.strings */; };
+		B044DDBC294130680019F093 /* AppConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044DDBB294130680019F093 /* AppConfiguratorTests.swift */; };
+		B044DDBE29413A060019F093 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044DDBD29413A060019F093 /* AppConfigurator.swift */; };
 		B0559C5529339D3100130633 /* RowShiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559C5429339D3100130633 /* RowShiftView.swift */; };
 		B0559C572933B4AF00130633 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559C562933B4AF00130633 /* Color+.swift */; };
 		B0559C5A2933CCAD00130633 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559C592933CCAD00130633 /* LicenseView.swift */; };
@@ -106,8 +109,11 @@
 		B03C667E292D1DBC00EE4978 /* NetworkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		B03C6684292D1EBC00EE4978 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		B03C6687292D313F00EE4978 /* ShiftsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftsRepositoryProtocol.swift; sourceTree = "<group>"; };
-		B03C6689292D372400EE4978 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		B03C6689292D372400EE4978 /* AppConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppConfig.plist; sourceTree = "<group>"; };
 		B044DDB5293BD0490019F093 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
+		B044DDB8294126A80019F093 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		B044DDBB294130680019F093 /* AppConfiguratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguratorTests.swift; sourceTree = "<group>"; };
+		B044DDBD29413A060019F093 /* AppConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurator.swift; sourceTree = "<group>"; };
 		B0559C5429339D3100130633 /* RowShiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowShiftView.swift; sourceTree = "<group>"; };
 		B0559C562933B4AF00130633 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		B0559C592933CCAD00130633 /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
@@ -182,14 +188,16 @@
 		2349FD59261E4F6900A1FEAA /* CodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				B044DDB72941267F0019F093 /* Resources */,
 				B094FF48293778A400CC02ED /* Coordinators */,
 				B0036DA52933622B0055E191 /* Views */,
+				B044DDBD29413A060019F093 /* AppConfigurator.swift */,
 				B03C6669292CFB7500EE4978 /* DIContainer.swift */,
 				2349FD5A261E4F6900A1FEAA /* CodingChallengeApp.swift */,
 				2349FD88261E4F9900A1FEAA /* ShiftsView.swift */,
 				2349FD5E261E4F6A00A1FEAA /* Assets.xcassets */,
 				2349FD63261E4F6A00A1FEAA /* Info.plist */,
-				B03C6689292D372400EE4978 /* Config.plist */,
+				B03C6689292D372400EE4978 /* AppConfig.plist */,
 				2349FD60261E4F6A00A1FEAA /* Preview Content */,
 			);
 			path = CodingChallenge;
@@ -206,6 +214,7 @@
 		2349FD6B261E4F6A00A1FEAA /* CodingChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				B044DDBA29412FFF0019F093 /* App */,
 				B0B8A03C29366341003CC4A0 /* Infrastructure */,
 				B0B8A0362936621E003CC4A0 /* Common */,
 				2349FD6E261E4F6A00A1FEAA /* Info.plist */,
@@ -370,6 +379,22 @@
 				B03C6687292D313F00EE4978 /* ShiftsRepositoryProtocol.swift */,
 			);
 			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		B044DDB72941267F0019F093 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B044DDB8294126A80019F093 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B044DDBA29412FFF0019F093 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B044DDBB294130680019F093 /* AppConfiguratorTests.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		B0559C5329339CCB00130633 /* DatePickerView */ = {
@@ -541,7 +566,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2349FD62261E4F6A00A1FEAA /* Preview Assets.xcassets in Resources */,
-				B03C668A292D372400EE4978 /* Config.plist in Resources */,
+				B044DDB9294126A80019F093 /* Localizable.strings in Resources */,
+				B03C668A292D372400EE4978 /* AppConfig.plist in Resources */,
 				2349FD5F261E4F6A00A1FEAA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,6 +616,7 @@
 				B0559C662934F28200130633 /* ShiftDescriptionView.swift in Sources */,
 				B03C6659292CEB7B00EE4978 /* DTOModels.swift in Sources */,
 				B094FF4B293778E700CC02ED /* NavigationStateProtocol.swift in Sources */,
+				B044DDBE29413A060019F093 /* AppConfigurator.swift in Sources */,
 				B094FF452937778100CC02ED /* Status.swift in Sources */,
 				B03781BA293101000044E991 /* PagingView.swift in Sources */,
 				B03C6688292D313F00EE4978 /* ShiftsRepositoryProtocol.swift in Sources */,
@@ -614,6 +641,7 @@
 			files = (
 				B0B8A045293669DB003CC4A0 /* NetworkServiceTests.swift in Sources */,
 				B0B8A03F2936646E003CC4A0 /* TestEnvironment.swift in Sources */,
+				B044DDBC294130680019F093 /* AppConfiguratorTests.swift in Sources */,
 				B0B8A0402936648D003CC4A0 /* NetworkSessionTests.swift in Sources */,
 				B0B8A0412936649A003CC4A0 /* XCTestCase+.swift in Sources */,
 				B0B8A0432936658C003CC4A0 /* MockURLProtocol.swift in Sources */,
