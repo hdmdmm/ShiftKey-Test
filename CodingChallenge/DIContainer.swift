@@ -16,6 +16,7 @@ struct ApplicationConfig: Decodable {
 struct DIContainer: ConfiguratorProtocol {
   private(set) var model: ApplicationConfig
   private(set) var hostURL: URL
+//  private(set) var coordinator: FlowCoordinatorProtocol
   
   init() {
     guard let config = try? Self.load("Config") else {
@@ -27,6 +28,7 @@ struct DIContainer: ConfiguratorProtocol {
     }
     hostURL = url
     
+//    coordinator = MainFlowCoordinator()
     // appearance
     UITableView.appearance().separatorColor = .clear
   }
@@ -53,5 +55,9 @@ struct DIContainer: ConfiguratorProtocol {
   
   func makeShiftsViewModel() -> ShiftsViewModel {
     ShiftsViewModel(fetchShiftsUseCase: makeUseCase())
+  }
+  
+  func makeRootView() -> ShiftsView<ShiftsViewModel> {
+    ShiftsView(viewModel: makeShiftsViewModel())
   }
 }

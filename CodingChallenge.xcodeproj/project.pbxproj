@@ -34,6 +34,7 @@
 		B03C6685292D1EBC00EE4978 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C6684292D1EBC00EE4978 /* API.swift */; };
 		B03C6688292D313F00EE4978 /* ShiftsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C6687292D313F00EE4978 /* ShiftsRepositoryProtocol.swift */; };
 		B03C668A292D372400EE4978 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = B03C6689292D372400EE4978 /* Config.plist */; };
+		B044DDB6293BD0490019F093 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044DDB5293BD0490019F093 /* MainFlowCoordinator.swift */; };
 		B0559C5529339D3100130633 /* RowShiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559C5429339D3100130633 /* RowShiftView.swift */; };
 		B0559C572933B4AF00130633 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559C562933B4AF00130633 /* Color+.swift */; };
 		B0559C5A2933CCAD00130633 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559C592933CCAD00130633 /* LicenseView.swift */; };
@@ -106,6 +107,7 @@
 		B03C6684292D1EBC00EE4978 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		B03C6687292D313F00EE4978 /* ShiftsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		B03C6689292D372400EE4978 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		B044DDB5293BD0490019F093 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
 		B0559C5429339D3100130633 /* RowShiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowShiftView.swift; sourceTree = "<group>"; };
 		B0559C562933B4AF00130633 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		B0559C592933CCAD00130633 /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				B094FF49293778B900CC02ED /* Navigation */,
+				B044DDB5293BD0490019F093 /* MainFlowCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				2349FD5B261E4F6900A1FEAA /* CodingChallengeApp.swift in Sources */,
 				B03781BE293101B60044E991 /* ElementView.swift in Sources */,
 				B0559C622933D94C00130633 /* Date+.swift in Sources */,
+				B044DDB6293BD0490019F093 /* MainFlowCoordinator.swift in Sources */,
 				B0559C5529339D3100130633 /* RowShiftView.swift in Sources */,
 				B03781A9292FE1CC0044E991 /* ShiftsDataRepository.swift in Sources */,
 			);

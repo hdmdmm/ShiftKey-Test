@@ -12,7 +12,7 @@ struct CodingChallengeApp: App {
   private var container = DIContainer()
   var body: some Scene {
     WindowGroup {
-      ShiftsView(viewModel: container.makeShiftsViewModel())
+      container.makeRootView()
     }
   }
 }

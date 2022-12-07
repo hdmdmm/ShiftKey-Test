@@ -47,14 +47,10 @@ final class ShiftsViewModel: ShiftsViewModelProtocol {
   
   @available(*, deprecated, message: "Added while search settings view and vm logic under development")
   func doSearch() {
-    doSearch(
-      request: ShiftsRequestEntity(address: "Dallas, TX", type: nil, start: nil, end: nil, radius: 15.8)
-    )
+    doSearch(request: ShiftsRequestEntity(address: "Dallas, TX", type: nil, start: nil, end: nil, radius: 15.8))
   }
   
-  func doSearch (
-    request: ShiftsRequestEntity = ShiftsRequestEntity(address: "Dallas, TX", type: nil, start: nil, end: nil, radius: 15.8)
-  ) {
+  func doSearch (request: ShiftsRequestEntity) {
     prepareForSearch()
     cancellableSearch = fetchShiftsUseCase.searchShifts(by: request)
       .map {

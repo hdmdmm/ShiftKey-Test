@@ -24,6 +24,7 @@ struct DefaultShiftsDataRepository: ShiftsRepositoryProtocol {
     self.localDataSource = localDataSource
   }
   
+  //TODO: to add a logic that save the data from backend
   /**
    1. try to get data from local storage
    2. try to get data from remote storage
