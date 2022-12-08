@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2349FD5B261E4F6900A1FEAA /* CodingChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349FD5A261E4F6900A1FEAA /* CodingChallengeApp.swift */; };
+		2349FD5B261E4F6900A1FEAA /* ShiftsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349FD5A261E4F6900A1FEAA /* ShiftsApp.swift */; };
 		2349FD5F261E4F6A00A1FEAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2349FD5E261E4F6A00A1FEAA /* Assets.xcassets */; };
 		2349FD62261E4F6A00A1FEAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2349FD61261E4F6A00A1FEAA /* Preview Assets.xcassets */; };
 		2349FD78261E4F6A00A1FEAA /* CodingChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349FD77261E4F6A00A1FEAA /* CodingChallengeUITests.swift */; };
@@ -80,7 +80,7 @@
 
 /* Begin PBXFileReference section */
 		2349FD57261E4F6900A1FEAA /* CodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2349FD5A261E4F6900A1FEAA /* CodingChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingChallengeApp.swift; sourceTree = "<group>"; };
+		2349FD5A261E4F6900A1FEAA /* ShiftsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftsApp.swift; sourceTree = "<group>"; };
 		2349FD5E261E4F6A00A1FEAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2349FD61261E4F6A00A1FEAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2349FD63261E4F6A00A1FEAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -172,6 +172,7 @@
 				B03C6652292CE86000EE4978 /* Data */,
 				B03C6653292CE87500EE4978 /* Domain */,
 				B03C6664292CF8E100EE4978 /* Presentors */,
+				B0036DA52933622B0055E191 /* Views */,
 				2349FD59261E4F6900A1FEAA /* App */,
 				2349FD6B261E4F6A00A1FEAA /* CodingChallengeTests */,
 				2349FD76261E4F6A00A1FEAA /* CodingChallengeUITests */,
@@ -194,11 +195,9 @@
 			children = (
 				B044DDB72941267F0019F093 /* Resources */,
 				B094FF48293778A400CC02ED /* Coordinators */,
-				B0036DA52933622B0055E191 /* Views */,
 				B044DDBD29413A060019F093 /* AppConfigurator.swift */,
 				B03C6669292CFB7500EE4978 /* DIContainer.swift */,
-				2349FD5A261E4F6900A1FEAA /* CodingChallengeApp.swift */,
-				2349FD88261E4F9900A1FEAA /* ShiftsView.swift */,
+				2349FD5A261E4F6900A1FEAA /* ShiftsApp.swift */,
 				2349FD63261E4F6A00A1FEAA /* Info.plist */,
 			);
 			path = App;
@@ -235,6 +234,7 @@
 		B0036DA52933622B0055E191 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2349FD88261E4F9900A1FEAA /* ShiftsView.swift */,
 				B0559C582933CC8E00130633 /* RowViews */,
 				B0559C5329339CCB00130633 /* DatePickerView */,
 				B0559C5429339D3100130633 /* RowShiftView.swift */,
@@ -649,7 +649,7 @@
 				B0A5D7AB2941FF8C005C4B66 /* ShiftsViewModelProtocol.swift in Sources */,
 				B0559C642933F4C300130633 /* ActivityIndicator.swift in Sources */,
 				B03C6681292D1DBC00EE4978 /* NetworkService.swift in Sources */,
-				2349FD5B261E4F6900A1FEAA /* CodingChallengeApp.swift in Sources */,
+				2349FD5B261E4F6900A1FEAA /* ShiftsApp.swift in Sources */,
 				B03781BE293101B60044E991 /* ElementView.swift in Sources */,
 				B0559C622933D94C00130633 /* Date+.swift in Sources */,
 				B0A5D7AD2941FFAF005C4B66 /* ShiftViewModelProtocol.swift in Sources */,

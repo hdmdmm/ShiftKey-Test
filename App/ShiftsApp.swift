@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct CodingChallengeApp: App {
+struct ShiftsApp: App {
   private var container = DIContainer()
   var body: some Scene {
     WindowGroup {
