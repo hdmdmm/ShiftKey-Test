@@ -51,6 +51,8 @@
 		B094FF452937778100CC02ED /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = B094FF442937778100CC02ED /* Status.swift */; };
 		B094FF47293777C500CC02ED /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B094FF46293777C500CC02ED /* Errors.swift */; };
 		B094FF4B293778E700CC02ED /* NavigationStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B094FF4A293778E700CC02ED /* NavigationStateProtocol.swift */; };
+		B0A5D7AB2941FF8C005C4B66 /* ShiftsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5D7AA2941FF8C005C4B66 /* ShiftsViewModelProtocol.swift */; };
+		B0A5D7AD2941FFAF005C4B66 /* ShiftViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5D7AC2941FFAF005C4B66 /* ShiftViewModelProtocol.swift */; };
 		B0B8A0332936274D003CC4A0 /* SearchSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B8A0322936274D003CC4A0 /* SearchSettingsView.swift */; };
 		B0B8A03F2936646E003CC4A0 /* TestEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B8A03A29366288003CC4A0 /* TestEnvironment.swift */; };
 		B0B8A0402936648D003CC4A0 /* NetworkSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B8A03D2936635A003CC4A0 /* NetworkSessionTests.swift */; };
@@ -127,6 +129,8 @@
 		B094FF442937778100CC02ED /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		B094FF46293777C500CC02ED /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		B094FF4A293778E700CC02ED /* NavigationStateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStateProtocol.swift; sourceTree = "<group>"; };
+		B0A5D7AA2941FF8C005C4B66 /* ShiftsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftsViewModelProtocol.swift; sourceTree = "<group>"; };
+		B0A5D7AC2941FFAF005C4B66 /* ShiftViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftViewModelProtocol.swift; sourceTree = "<group>"; };
 		B0B8A0322936274D003CC4A0 /* SearchSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSettingsView.swift; sourceTree = "<group>"; };
 		B0B8A03829366256003CC4A0 /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
 		B0B8A03A29366288003CC4A0 /* TestEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEnvironment.swift; sourceTree = "<group>"; };
@@ -168,7 +172,7 @@
 				B03C6652292CE86000EE4978 /* Data */,
 				B03C6653292CE87500EE4978 /* Domain */,
 				B03C6664292CF8E100EE4978 /* Presentors */,
-				2349FD59261E4F6900A1FEAA /* CodingChallenge */,
+				2349FD59261E4F6900A1FEAA /* App */,
 				2349FD6B261E4F6A00A1FEAA /* CodingChallengeTests */,
 				2349FD76261E4F6A00A1FEAA /* CodingChallengeUITests */,
 				2349FD58261E4F6900A1FEAA /* Products */,
@@ -185,7 +189,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2349FD59261E4F6900A1FEAA /* CodingChallenge */ = {
+		2349FD59261E4F6900A1FEAA /* App */ = {
 			isa = PBXGroup;
 			children = (
 				B044DDB72941267F0019F093 /* Resources */,
@@ -195,12 +199,9 @@
 				B03C6669292CFB7500EE4978 /* DIContainer.swift */,
 				2349FD5A261E4F6900A1FEAA /* CodingChallengeApp.swift */,
 				2349FD88261E4F9900A1FEAA /* ShiftsView.swift */,
-				2349FD5E261E4F6A00A1FEAA /* Assets.xcassets */,
 				2349FD63261E4F6A00A1FEAA /* Info.plist */,
-				B03C6689292D372400EE4978 /* AppConfig.plist */,
-				2349FD60261E4F6A00A1FEAA /* Preview Content */,
 			);
-			path = CodingChallenge;
+			path = App;
 			sourceTree = "<group>";
 		};
 		2349FD60261E4F6A00A1FEAA /* Preview Content */ = {
@@ -353,8 +354,8 @@
 		B03C6664292CF8E100EE4978 /* Presentors */ = {
 			isa = PBXGroup;
 			children = (
-				B03C6665292CF91F00EE4978 /* ShiftsViewModel.swift */,
-				B03C6667292CF92D00EE4978 /* ShiftViewModel.swift */,
+				B0A5D7A92941FF6D005C4B66 /* ViewModels */,
+				B0A5D7A82941FF63005C4B66 /* Protocols */,
 				B094FF442937778100CC02ED /* Status.swift */,
 				B094FF46293777C500CC02ED /* Errors.swift */,
 			);
@@ -384,7 +385,10 @@
 		B044DDB72941267F0019F093 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2349FD60261E4F6A00A1FEAA /* Preview Content */,
+				2349FD5E261E4F6A00A1FEAA /* Assets.xcassets */,
 				B044DDB8294126A80019F093 /* Localizable.strings */,
+				B03C6689292D372400EE4978 /* AppConfig.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -433,6 +437,24 @@
 				B094FF4A293778E700CC02ED /* NavigationStateProtocol.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		B0A5D7A82941FF63005C4B66 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B0A5D7AA2941FF8C005C4B66 /* ShiftsViewModelProtocol.swift */,
+				B0A5D7AC2941FFAF005C4B66 /* ShiftViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B0A5D7A92941FF6D005C4B66 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B03C6665292CF91F00EE4978 /* ShiftsViewModel.swift */,
+				B03C6667292CF92D00EE4978 /* ShiftViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		B0B8A0362936621E003CC4A0 /* Common */ = {
@@ -624,11 +646,13 @@
 				B0559C602933CEB700130633 /* WorkingDayTimeView.swift in Sources */,
 				B03C666A292CFB7500EE4978 /* DIContainer.swift in Sources */,
 				B094FF47293777C500CC02ED /* Errors.swift in Sources */,
+				B0A5D7AB2941FF8C005C4B66 /* ShiftsViewModelProtocol.swift in Sources */,
 				B0559C642933F4C300130633 /* ActivityIndicator.swift in Sources */,
 				B03C6681292D1DBC00EE4978 /* NetworkService.swift in Sources */,
 				2349FD5B261E4F6900A1FEAA /* CodingChallengeApp.swift in Sources */,
 				B03781BE293101B60044E991 /* ElementView.swift in Sources */,
 				B0559C622933D94C00130633 /* Date+.swift in Sources */,
+				B0A5D7AD2941FFAF005C4B66 /* ShiftViewModelProtocol.swift in Sources */,
 				B044DDB6293BD0490019F093 /* MainFlowCoordinator.swift in Sources */,
 				B0559C5529339D3100130633 /* RowShiftView.swift in Sources */,
 				B03781A9292FE1CC0044E991 /* ShiftsDataRepository.swift in Sources */,
@@ -794,10 +818,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"CodingChallenge/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"App/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 85MT5B8TB3;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = CodingChallenge/Info.plist;
+				INFOPLIST_FILE = App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -816,10 +840,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"CodingChallenge/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"App/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 85MT5B8TB3;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = CodingChallenge/Info.plist;
+				INFOPLIST_FILE = App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

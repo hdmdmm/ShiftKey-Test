@@ -88,7 +88,10 @@ struct ShiftsView<VM: ShiftsViewModelProtocol>: View {
 
 struct ShiftsView_Previews: PreviewProvider {
   static var previews: some View {
-    ShiftsView(viewModel: ShiftsViewModel(fetchShiftsUseCase: PreviewUseCase()))
+    ShiftsView(viewModel: ShiftsViewModel(
+      fetchShiftsUseCase: PreviewUseCase(),
+      defaultSearchSettings: ShiftsRequestEntity(address: "Dallas, TX", radius: 15.8)
+    ))
   }
 }
 

@@ -8,22 +8,6 @@
 import Foundation
 import Combine
 
-protocol ShiftViewModelProtocol {
-  var workingDate: String { get }
-  var workingHours: String { get }
-  var startHours: Int { get }
-  var endHours: Int { get }
-  var premiumRate: Bool { get }
-  var covid: Bool { get }
-  var shiftKind: String { get }
-  
-  var speciality: FacilityType { get }
-  var facility: FacilityType { get }
-  var skill: FacilityType { get }
-  var localizedSpeciality: LocalizedSpeciality { get }
-  var withinDistance: Int { get }
-}
-
 struct ShiftViewModel: ShiftViewModelProtocol {
   var facility: FacilityType { model.facilityType }
   var skill: FacilityType { model.skill }

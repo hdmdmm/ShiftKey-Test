@@ -45,7 +45,10 @@ struct DIContainer {
   }
   
   func makeShiftsViewModel() -> ShiftsViewModel {
-    ShiftsViewModel(fetchShiftsUseCase: makeUseCase())
+    ShiftsViewModel(
+      fetchShiftsUseCase: makeUseCase(),
+      defaultSearchSettings: ShiftsRequestEntity(address: "Dallas, TX", radius: 15.8)
+    )
   }
   
   func makeRootView() -> ShiftsView<ShiftsViewModel> {

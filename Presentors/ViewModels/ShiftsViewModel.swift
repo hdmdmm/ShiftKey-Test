@@ -8,18 +8,6 @@
 import Foundation
 import Combine
 
-protocol ShiftsViewModelProtocol: ObservableObject {
-  var selectedIndex: Int { get set }
-  var dates: [String] { get set }
-  var list: [ShiftViewModel] { get set }
-  var errorInfo: ErrorInfo? { get set }
-  var isSearching: Bool { get set }
-  var searchRequestSettings: ShiftsRequestEntity { get set }
-
-  func doSearch (request: ShiftsRequestEntity)
-  func doSearch()
-}
-
 final class ShiftsViewModel: ShiftsViewModelProtocol {
   @Published var selectedIndex: Int = 0
   @Published var dates: [String] = []
@@ -35,13 +23,12 @@ final class ShiftsViewModel: ShiftsViewModelProtocol {
   private var cancellableSearch: AnyCancellable?
   private var cancellableBindings = Set<AnyCancellable>()
   
-  init(fetchShiftsUseCase: FetchShiftsUseCaseProtocol) {
+  init(
+    fetchShiftsUseCase: FetchShiftsUseCaseProtocol,
+    defaultSearchSettings: ShiftsRequestEntity
+  ) {
     self.fetchShiftsUseCase = fetchShiftsUseCase
-    searchRequestSettings = ShiftsRequestEntity(address: "Dallas, TX",
-                                                type: nil,
-                                                start: nil,
-                                                end: nil,
-                                                radius: 15.8)
+    searchRequestSettings = defaultSearchSettings
     setupBindings()
   }
   
